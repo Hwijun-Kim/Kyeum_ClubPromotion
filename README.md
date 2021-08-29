@@ -7,6 +7,7 @@
 ### **명지대학교 인문캠퍼스 제37대 총동아리연합회**
 
 Designer 키움 기획국, 홍보국
+
 Developer  회장 [유도진](https://github.com/dojinyou)| 부회장 [김휘준]() | [정동준](https://github.com/dj-1087) 
 
 #
