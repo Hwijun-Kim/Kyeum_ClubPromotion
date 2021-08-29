@@ -1,161 +1,159 @@
 @font-face {
-  font-family: '둥근모';
-  src: url('../fonts/DungGeunMo.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+	font-family: "둥근모";
+	src: url("../fonts/DungGeunMo.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
 }
 @font-face {
-  font-family: 'Cafe24Ohsquare';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+	font-family: "Cafe24Ohsquare";
+	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff")
+		format("woff");
+	font-weight: normal;
+	font-style: normal;
 }
 
 #tutorial {
-  @include respond(phone) {
-    width: 90%;
-    left: 5%;
-    margin: 0;
-
-  }
+	@include respond(phone) {
+		width: 90%;
+		left: 5%;
+		margin: 0;
+	}
 }
 
 .ment0 {
-  font-size: 1.5rem;
-  // white-space: nowrap;
-  @include respond(phone) {
-    font-size: 1rem;
-  }
+	font-size: 1.5rem;
+	// white-space: nowrap;
+	@include respond(phone) {
+		font-size: 1rem;
+	}
 }
 .ment2 {
-  font-size: 1.5rem;
-  white-space: nowrap;
-  @include respond(phone) {
-    font-size: 1.5rem;
-  }
+	font-size: 1.5rem;
+	white-space: nowrap;
+	@include respond(phone) {
+		font-size: 1.5rem;
+	}
 }
 .ment3 {
-  font-size: 1.25rem;
-  width: 100%;
-  @include respond(phone) {
-    font-size: 0.8rem;
-  }
+	font-size: 1.25rem;
+	width: 100%;
+	@include respond(phone) {
+		font-size: 0.8rem;
+	}
 }
 .ment4 {
-  font-size: 1.5rem;
-  @include respond(phone) {
-    font-size: 1rem;
-  }
+	font-size: 1.5rem;
+	@include respond(phone) {
+		font-size: 1rem;
+	}
 }
 .ment5 {
-  font-size: 1.5rem;
-  @include respond(phone) {
-    font-size: 1rem;
-  }
+	font-size: 1.5rem;
+	@include respond(phone) {
+		font-size: 1rem;
+	}
 }
 
-
-
 #text0 {
-  position: absolute;
-  width: 68%;
-  left: 18%;
-  top: 25%;
-  font-family: "Cafe24Ohsquare";
-  @include respond(phone) {
-    top: 27%;
-    left: 17%;
-  }
+	position: absolute;
+	width: 68%;
+	left: 18%;
+	top: 25%;
+	font-family: "Cafe24Ohsquare";
+	@include respond(phone) {
+		top: 27%;
+		left: 17%;
+	}
 }
 
 #text1 {
-  position: absolute;
-  width: 70%;
-  left: 20%;
-  top: 37%;
-  font-family: "둥근모";
-  @include respond(phone) {
-    top: 37%;
-    left: 20%;
-  }
+	position: absolute;
+	width: 70%;
+	left: 10%;
+	top: 75%;
+	font-family: "둥근모";
+	@include respond(phone) {
+		top: 37%;
+		left: 20%;
+	}
 }
 #text2 {
-  position: absolute;
-  width: 70%;
-  left: 15%;
-  top: 67%;
-  align-items: center;
-  font-family: "둥근모";
-  @include respond(phone) {
-    top: 65%;
-    left: 15%;
-  }
+	position: absolute;
+	width: 70%;
+	left: 10%;
+	top: 80%;
+	align-items: center;
+	font-family: "둥근모";
+	@include respond(phone) {
+		top: 65%;
+		left: 15%;
+	}
 }
 
 #completeCard {
-  position: absolute;
-  width: 70%;
-  left: 54%;
-  top: 39%;
-  align-items: center;
-  font-family: "둥근모";
-  @include respond(phone) {
-    top: 39.5%;
-    left: 54%;
-    font-weight: bold;
-  }
+	position: absolute;
+	width: 70%;
+	left: 54%;
+	top: 39%;
+	align-items: center;
+	font-family: "둥근모";
+	@include respond(phone) {
+		top: 39.5%;
+		left: 54%;
+		font-weight: bold;
+	}
 }
-#completeCardMent{
-  font-size: 1.5rem;
-  @include respond(phone) {
-    font-size: 1rem;
-  }
+#completeCardMent {
+	font-size: 1.5rem;
+	@include respond(phone) {
+		font-size: 1rem;
+	}
 }
 
 #nameInput {
-  width: 100%;
-  @include respond(phone) {
-    width: 18vw;
-  }
+	width: 100%;
+	@include respond(phone) {
+		width: 18vw;
+	}
 }
 
 .userName {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .hunterMent {
-  position: absolute;
-  color:black;
-  width: 63%;
-  font-size: 1.7rem;
-  left: 15%;
-  top: 10%;
-  align-items: center;
-  font-family: "둥근모";
-  @include respond(phone) {
-    top: 25%;
-    left: 8%;
-    font-size: 1.25rem;
-  }
+	position: absolute;
+	color: black;
+	width: 63%;
+	font-size: 1.7rem;
+	left: 15%;
+	top: 10%;
+	align-items: center;
+	font-family: "둥근모";
+	@include respond(phone) {
+		top: 25%;
+		left: 8%;
+		font-size: 1.25rem;
+	}
 }
 
 .hunterMent#hunterMent0 {
-  width: 63%;
-  font-size: 1.25rem;
-  top: 8%;
-  @include respond(phone) {
-    top: 25%;
-    left: 8%;
-    font-size: 0.75rem;
-  }
+	width: 63%;
+	font-size: 1.25rem;
+	top: 8%;
+	@include respond(phone) {
+		top: 25%;
+		left: 8%;
+		font-size: 0.75rem;
+	}
 }
 .hunterMent#hunterMent7 {
-  width: 63%;
-  font-size: 1.25rem;
-  top: 8%;
-  @include respond(phone) {
-    top: 25%;
-    left: 8%;
-    font-size: 0.75rem;
-  }
+	width: 63%;
+	font-size: 1.25rem;
+	top: 8%;
+	@include respond(phone) {
+		top: 25%;
+		left: 8%;
+		font-size: 0.75rem;
+	}
 }
