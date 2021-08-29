@@ -1,13 +1,13 @@
 # 명지대학교 인문캠퍼스 동아리홍보축제 플랫폼
 
-홈페이지 [바로가기](https://mjuclubsfestival.com/)
+홈페이지 [바로가기]()
 
 ## Created By
 
-### **명지대학교 인문캠퍼스 총동아리연합회**
+### **명지대학교 인문캠퍼스 제37대 총동아리연합회**
 
-Designer 노현정  
-Developer [양성훈](https://github.com/seonghunYang) | [정동준](https://github.com/dj-1087) | [김휘준]()  | [유도진](https://github.com/dojinyou) 
+Designer 키움 기획국, 홍보국
+Developer  회장 [유도진](https://github.com/dojinyou)| 부회장 [김휘준]() | [정동준](https://github.com/dj-1087) 
 
 #
 
@@ -20,26 +20,9 @@ Developer [양성훈](https://github.com/seonghunYang) | [정동준](https://git
 - 신입회원 모집안내
 
 ### **이벤트** 
-<ol>
+<ol>  
   <li>
-    <b>1학기 : `보물을 찾아라!`</b>
-    <ul>
-      <li>이벤트 컨셉: <b>보물 찾기</b></li>
-      <li>컨셉 캐릭터: <b>트레져헌터+어몽어스</b></li>
-      <li>
-        보물
-        <ul>
-          <li>1등 : 아이패드 8세대 128GB <색상 선택> (1명)</li>
-          <li>2등 : 인스탁스 미니11 (1명)</li>
-          <li>3등 : 치킨 교환권 (3명)</li>
-        </ul>
-      </li>
-      <li>이벤트 목적: 사이트 방문 유도</li>
-    </ul>
-  </li>
-  
-  <li>
-    <b>2학기 : `오키도키를 구하자!`</b>
+    <b>`오키도키를 구하자!`</b>
     <ul>
       <li>이벤트 컨셉: <b>열쇠 찾기</b></li>
       <li>컨셉 캐릭터: <b>오키+도키</b></li>
