@@ -104,23 +104,48 @@ const Main = () => {
     "좋다! 단서는 어디서 얻지?",
     "좋아 거기서 보자!!",
   ];
+  const getKeysPoint = async () => {
+    // 열쇠 위치 랜덤 배치 함수
+    // return 값은 object = {분과명 : 열쇠 위치값}
+    var keyPoint = {}; // return value object
+
+    //데이터 가져오기
+    const depart = dbService.collection("departments");
+
+    // 분과명 가져오기. d_name으로 분과명 들어옴
+    (await depart.doc('all').get()).data()['contains'].forEach(async (d_name) => {
+      // 분과별 동아리 수(길이값) 가져오기
+      const num = (await depart.doc(d_name).get()).data()['contains'].length;
+
+      // 동아리 수 이하의 랜덤 정수 할당
+      keyPoint[d_name] = Math.floor(Math.random() * num);
+    });
+    console.log(keyPoint);
+    console.log(JSON.stringify(keyPoint));
+    // console.log(keyPoint.hasOwnProperty());
+    return keyPoint;
+  }
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleInputName = () => {
-    if (window.event.keyCode == 13) {
+    if (window.event.keyCode == 13) { // input Enter key
       const a = document.getElementById("nameInput");
       let ment = document.getElementById("ment2");
       localStorage.setItem("mju_name", a.value);
+      // localStorage.setItem("mju_name", getKeysPoint());
+      getKeysPoint().then((res) => localStorage.setItem("getKeys", res));
       setUserName(a.value);
     }
   };
-  const handleNext = (event) => {
+  const handleNext = (event) => { // 버튼 클릭 시 이름 저장하려고
     if ((popupIdx == 2) & (userName === undefined)) {
       const a = document.getElementById("nameInput");
       if (a.value == "") {
         setHelperText("이름을 입력해주세요!");
       } else {
         localStorage.setItem("mju_name", a.value);
+        // localStorage.setItem("mju_name", getKeysPoint());
+        getKeysPoint().then((res) => localStorage.setItem("getKeys", res));
         setUserName(a.value);
       }
       return;
@@ -131,6 +156,7 @@ const Main = () => {
     setPopupIdx((popupIdx - 1) % 6);
   };
   useEffect(() => {
+    getKeysPoint()
     if (window.innerWidth > 769) {
       // if (window.innerWidth > 1440) {
       setIsDesktop(true);
@@ -281,13 +307,13 @@ const Main = () => {
                 helperText={helperText}
               />
             ) : // (isDesktop ? <Button>제출</Button> : <></> )
-            popupIdx == 2 ? (
-              <Fade top duration={500} distance={"20px"}>
-                <span className="userName">{userName}이다!</span>
-              </Fade>
-            ) : (
-              <></>
-            )}
+              popupIdx == 2 ? (
+                <Fade top duration={500} distance={"20px"}>
+                  <span className="userName">{userName}이다!</span>
+                </Fade>
+              ) : (
+                <></>
+              )}
           </span>
         </div>
         <Modal.Footer>
