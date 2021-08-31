@@ -125,26 +125,25 @@ const Main = () => {
     "저 조각들은 무언가를 부셔놓은 것 같았다",
     "어서 빨리 조각들을 찾아 구해줘야지!",
   ];
-  const getKeysPoint = async () => {
+  async function setKeysPoint() {
     // 열쇠 위치 랜덤 배치 함수
-    // return 값은 object = {분과명 : 열쇠 위치값}
-    var keyPoint = {}; // return value object
+    const getRandomValue = (num) => Math.floor(Math.random() * num);
 
     //데이터 가져오기
-    const depart = dbService.collection("departments");
+    const doc_all = dbService.collection("departments").doc('all');
 
-    // 분과명 가져오기. d_name으로 분과명 들어옴
-    (await depart.doc('all').get()).data()['contains'].forEach(async (d_name) => {
-      // 분과별 동아리 수(길이값) 가져오기
-      const num = (await depart.doc(d_name).get()).data()['contains'].length;
+    // 분과명 가져오기.
+    const d_names = (await doc_all.get()).data()["contains"]
 
-      // 동아리 수 이하의 랜덤 정수 할당
-      keyPoint[d_name] = Math.floor(Math.random() * num);
-    });
-    console.log(keyPoint);
-    console.log(JSON.stringify(keyPoint));
-    // console.log(keyPoint.hasOwnProperty());
-    return keyPoint;
+    // 분과별 동아리 수에 따른 랜덤값 생성
+    Promise.all( // 분과별 정보 불러오기(비동기과정) 병렬처리
+      d_names.map(
+        async (d_name) => {
+          // 동아리이름이 들어있는 array의 길이값 활용
+          return (await dbService.collection("departments").doc(d_name).get()).data()["contains"].length;
+        }))
+      .then((nums) => { return nums.map(getRandomValue) })
+      .then((keyPoints) => { localStorage.getItem("key_points") ?? localStorage.setItem("key_points", keyPoints) });
   }
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -154,6 +153,7 @@ const Main = () => {
       let ment = document.getElementById("ment2");
       localStorage.setItem("mju_name", a.value);
       setUserName(a.value);
+      setKeysPoint();
     }
   };
   const handleNext = (event) => {
@@ -164,6 +164,7 @@ const Main = () => {
       } else {
         localStorage.setItem("mju_name", a.value);
         setUserName(a.value);
+        setKeysPoint();
       }
       return;
     }
