@@ -19,7 +19,7 @@ const FileUpload = ({ clubObj }) => {
       });
     } else if (field === "introduction") {
       const state = await dbService
-        .collection("departments")
+        .collection("clubs")
         .doc(clubName)
         .update({
           introduction: lines,
