@@ -12,8 +12,8 @@
   position: absolute;
   left: 0%;
   top: 0%;
-  // width: 100%;
-  // height: 100vh;
+  width: 100%;
+  height: 100vh;
   z-index: 2;
   @include respond(phone) {
     height: auto;
@@ -517,22 +517,23 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: #c0e9e8;
+  // background-color: #c0e9e8;
+  background-color: #FF915F;
 }
 
 #mainImage {
   position: absolute;
-  left: 5%;
+  left: 0%;
   top: 0%;
-  width: 90%;
+  width: 100%;
   height: 100vh;
   z-index: 1;
-  @include respond(phone) {
-    height: 80vh;
-    width: 100%;
-    top: 20vh;
-    left: 0%;
-  }
+  // @include respond(phone) {
+  //   // height: 80vh;
+  //   width: 100%;
+  //   // top: 20vh;
+  //   left: 0%;
+  // }
 }
 
 #banner {
