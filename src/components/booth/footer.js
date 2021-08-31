@@ -38,7 +38,7 @@ const Footer = () => {
       <Container>
         <hr />
         <Row className="justify-content-md-center">
-          <p>명지대학교 인문캠퍼스 총동아리연합회 비상대책위원회</p>
+          <p>명지대학교 인문캠퍼스 제37대 총동아리연합회 키움</p>
         </Row>
         <Row className="justify-content-md-center">
           <p
@@ -51,10 +51,10 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           > */}
-            Developers: 비상대책위원장 양성훈 | 기획재정국장 정동준 |
-            복지정책국장 김휘준 <br></br>
-            Desinger: 대외홍보국장 노현정<br></br>
-            Copyright © 명지대학교 인문캠퍼스 총동아리연합회 비상대책위원회
+            Developers: 회장 유도진 | 부회장 김휘준 | 정동준
+            <br></br>
+            Desinger: 기획국장 이연주 | 홍보국장 노현정 | 홍보국원 신경민<br></br>
+            Copyright © 명지대학교 인문캠퍼스 제37대 총동아리연합회 키움
           </p>
         </Row>
       </Container>

@@ -4,7 +4,7 @@ import PortfolioContext from "../../context/context";
 import Title from "components/booth/title";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { Grid, IconButton } from "@material-ui/core";
-import members from "img/members.jpg";
+import members from "img/main/Keyum_member.jpeg";
 
 const Contact = () => {
   const { departmentObj } = useContext(PortfolioContext);
@@ -102,16 +102,16 @@ const Contact = () => {
             <a
               className={`cta-btn cta-btn--resume ${key}`}
               onClick={(e) => {
-                if (e.target.innerText == "총동아리연합회 비상대책위원회") {
-                  e.target.innerText = "양성훈 김휘준 노현정 정동준";
+                if (e.target.innerText == "총동아리연합회 키움") {
+                  e.target.innerText = "유도진 김휘준 이연주 노현정 신경민";
                   e.target.style.width = "22rem";
                 } else {
-                  e.target.innerText = "총동아리연합회 비상대책위원회";
+                  e.target.innerText = "총동아리연합회 키움";
                   e.target.style.removeProperty("width");
                 }
               }}
             >
-              총동아리연합회 비상대책위원회
+              총동아리연합회 키움
             </a>
           </Col>
         </Row>
