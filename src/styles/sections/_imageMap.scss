@@ -25,42 +25,41 @@
 
 #art {
   position: absolute;
-  top: 18vh;
-  left: 25%;
-  width: 50%;
+  top: 11vh;
+  left: 19%;
+  width: 55%;
   z-index: 4;
   height: 75vh;
   @include respond(phone) {
-    height: 50vh;
+    height: 45vh;
     width: 90%;
-    top: 47vh;
+    top: 46vh;
     left: 3%;
   }
 }
 #artHover {
   position: absolute;
-  top: 17vh;
-  left: 24%;
-  width: 54%;
+  top: 10vh;
+  left: 18%;
+  width: 59%;
   z-index: 4;
   height: 76vh;
   visibility: hidden;
   @include respond(phone) {
-    height: 50vh;
+    height: 45vh;
     width: 90%;
-    top: 47vh;
+    top: 46vh;
     left: 3%;
   }
 }
 #artLink {
   position: absolute;
-  left: 35.5%; 
-  top: 50%;
-  width: 11%;
-  height: 20%;
+  left: 30.7%; 
+  top: 43.2%;
+  width: 12%;
+  height: 19%;
   z-index: 2; 
-  // background-color: yellow;
-  // opacity: 0.3;
+  //background-color: yellow;
   @include respond(phone) {
     // height: 50vh;
     top: 18vh;
@@ -69,8 +68,8 @@
   }
 }
 #art-btn {
-  top: -8vh;
-  left: 5vw;
+  top: -9vh;
+  left: 6vw;
   @include respond(phone) {
     // height: 50vh;
     // top: 18vh;
@@ -78,56 +77,43 @@
     left: 6vw;
   }
 }
-#chongdongyeon {
-  position: absolute;
-  top: 13vh;
-  left: 2%;
-  width: 98%;
-  z-index: 3;
-  height: 82vh;
-  @include respond(phone) {
-    height: 50vh;
-    width: 90%;
-    top: 47vh;
-    left: -4%;
-  }
-}
 #social {
   position: absolute;
-  top: 18vh;
-  left: 25%;
-  width: 50%;
+  top: 10vh;
+  left: 19%;
+  width: 55%;
   z-index: 3;
   height: 75vh;
   @include respond(phone) {
-    height: 50vh;
+    height: 45vh;
     width: 90%;
-    top: 47vh;
+    top: 46vh;
     left: 3%;
   }
 }
 #socialHover {
   position: absolute;
-  top: 17vh;
-  left: 24%;
-  width: 54%;
+  top: 10vh;
+  left: 18%;
+  width: 59%;
   z-index: 3;
   height: 76vh;
   visibility: hidden;
   @include respond(phone) {
-    height: 50vh;
+    height: 45vh;
     width: 90%;
-    top: 47vh;
+    top: 46vh;
     left: 3%;
   }
 }
 #socialLink {
   position: absolute;
-  left: 26%; 
-  top: 52%;
-  width: 9.5%;
-  height: 18%;
+  left: 20%; 
+  top: 44.2%;
+  width: 12%;
+  height: 18.2%;
   z-index: 2; 
+  //background-color: yellow; 
   @include respond(phone) {
     position: absolute;
     top: 38vh;
@@ -218,41 +204,42 @@
 
 #exhibition {
   position: absolute;
-  top: 20vh;
-  left: 25%;
-  width: 50%;
+  top: 13vh;
+  left: 13%;
+  width: 65%;
   z-index: 2;
   height: 80vh;
   @include respond(phone) {
     height: 50vh;
-    width: 90%;
-    top: 50vh;
-    left: 3%;
+    width: 95%;
+    top: 47.5vh;
+    left: 0%;
   }
 }
 
 #exhibitionHover {
   position: absolute;
-  top: 19vh;
-  left: 23%;
-  width: 54%;
+  top: 13vh;
+  left: 11%;
+  width: 69%;
   z-index: 2;
   height: 81vh;
   visibility: hidden;
   @include respond(phone) {
     height: 50vh;
-    width: 90%;
-    top: 50vh;
-    left: 3%;
+    width: 95%;
+    top: 47.5vh;
+    left: 0%;
   }
 }
 #exhibitionLink {
   position: absolute;
-  left: 53%; 
-  top: 33%;
-  width: 7.5%;
-  height: 20%;
+  left: 50%; 
+  top: 26%;
+  width: 9%;
+  height: 22%;
   z-index: 2; 
+  //background-color: yellow;
   @include respond(phone) {
     position: absolute;
     top: 28vh;
@@ -261,8 +248,8 @@
   }
 }
 #exhibition-btn {
-  top: -3vh;
-  left: -1vw;
+  top: -2vh;
+  left: 2vw;
   @include respond(phone) {
     top: auto;
   left: auto;
@@ -271,36 +258,36 @@
 }
 #study {
   position: absolute;
-  top: 15vh;
-  left: 26%;
-  width: 50%;
+  top: 7vh;
+  left: 21%;
+  width: 55%;
   z-index: 3;
   height: 80vh;
   @include respond(phone) {
-    height: 47vh;
-    width: 90%;
-    top: 49vh;
-    left: 6%;
+    height: 45vh;
+    width: 95%;
+    top: 46vh;
+    left: 1%;
   }
 }
 #studyHover {
   position: absolute;
-  top: 14vh;
-  left: 23%;
-  width: 54%;
+  top: 7vh;
+  left: 18%;
+  width: 59%;
   z-index: 3;
   height: 81vh;
   visibility: hidden;
   @include respond(phone) {
-    height: 47vh;
-    width: 90%;
-    top: 49vh;
-    left: 6%;
+    height: 45vh;
+    width: 95%;
+    top: 46vh;
+    left: 1%;
   }
 }
 #study-btn {
-  top: 3vh;
-  left: 7vw;
+  top: -5vh;
+  left: 9vw;
   @include respond(phone) {
     top: auto;
     left: 6vw;
@@ -308,11 +295,12 @@
 }
 #studyLink {
   position: absolute;
-  left: 59.5%; 
-  top: 41%;
-  width: 20%;
-  height: 23.5%;
-  z-index: 2; 
+  left: 58%; 
+  top: 33%;
+  width: 16%;
+  height: 24%;
+  z-index: 2;
+  //background-color: yellow; 
   @include respond(phone) {
     position: absolute;
     top: 48vh;
@@ -321,40 +309,41 @@
 }
 #sports {
   position: absolute;
-  top: 19vh;
-  left: 27%;
-  width: 50%;
+  top: 12vh;
+  left: 21%;
+  width: 55%;
   z-index: 5;
   height: 70vh;
   @include respond(phone) {
     height: 45vh;
-    width: 90%;
-    top: 49vh;
-    left: 5%;
+    width: 92%;
+    top: 44.5vh;
+    left: 4%;
   }
 }
 #sportsHover {
   position: absolute;
-  top: 18vh;
-  left: 24%;
-  width: 54%;
+  top: 11vh;
+  left: 18%;
+  width: 59%;
   z-index: 5;
   height: 71vh;
   visibility: hidden;
   @include respond(phone) {
     height: 45vh;
-    width: 90%;
-    top: 49vh;
-    left: 5%;
+    width: 92%;
+    top: 44.5vh;
+    left: 4%;
   }
 }
 #sportsLink {
   position: absolute;
-  left: 53.7%; 
-  top: 62.5%;
-  width: 15.7%;
-  height: 19.5%;
+  left: 50.5%; 
+  top: 55%;
+  width: 17.2%;
+  height: 19.7%;
   z-index: 2; 
+  //background-color: yellow; 
   @include respond(phone) {
     position: absolute;
     top: 38vh;
@@ -371,40 +360,41 @@
 }
 #volunteer {
   position: absolute;
-  top: 23vh;
-  left: 26%;
-  width: 50%;
+  top: 15vh;
+  left: 21%;
+  width: 55%;
   z-index: 4;
   height: 70vh;
   @include respond(phone) {
-    height: 43vh;
+    height: 41vh;
     width: 90%;
-    top: 53vh;
+    top: 49.5vh;
     left: 5%;
   }
 }
 #volunteerHover {
   position: absolute;
-  top: 22vh;
-  left: 23%;
-  width: 54%;
+  top: 15vh;
+  left: 18%;
+  width: 59%;
   z-index: 4;
   height: 71vh;
   visibility: hidden;
   @include respond(phone) {
-    height: 43vh;
+    height: 41vh;
     width: 90%;
-    top: 53vh;
+    top: 49.5vh;
     left: 5%;
   }
 }
 #volunteerLink {
   position: absolute;
-  left: 52.5%;
-  top: 50%;
-  width: 8%;
-  height: 19%;
+  left: 50.5%;
+  top: 42%;
+  width: 8.6%;
+  height: 18.3%;
   z-index: 2; 
+  //background-color: yellow; 
   @include respond(phone) {
     position: absolute;
     top: 18vh;
@@ -425,40 +415,41 @@
 
 #religion {
   position: absolute;
-  top: 20vh;
-  left: 25%;
-  width: 50%;
+  top: 11vh;
+  left: 19%;
+  width: 55%;
   z-index: 2;
   height: 80vh;
   @include respond(phone) {
     height: 50vh;
-    width: 80%;
-    top: 50vh;
-    left: 8%;
+    width: 85%;
+    top: 47vh;
+    left: 6%;
   }
 }
 #religionHover {
   position: absolute;
-  top: 18vh;
-  left: 24%;
-  width: 54%;
+  top: 10vh;
+  left: 18%;
+  width: 59%;
   z-index: 2;
   height: 82vh;
   visibility: hidden;
   @include respond(phone) {
     height: 50vh;
-    width: 80%;
-    top: 50vh;
-    left: 8%;
+    width: 85%;
+    top: 47vh;
+    left: 6%;
   }
 }
 #religionLink {
   position: absolute;
-  left: 36.5%;
-  top: 38%;
-  width: 11.5%;
+  left: 31.5%;
+  top: 29%;
+  width: 13%;
   height: 17%;
   z-index: 2;
+  //background-color: yellow;
   @include respond(phone) {
     position: absolute;
     top: 28vh;
@@ -466,8 +457,8 @@
   }
 }
 #religion-btn {
-  top: -5vh;
-  left: 5vw;
+  top: -6vh;
+  left: 8vw;
   @include respond(phone) {
     top: auto;
     left: 6vw;
@@ -476,11 +467,12 @@
 
 #chongdongyeonLink {
   position: absolute;
-  left: 29%;
-  top: 71%;
-  width: 11.5%;
-  height: 10.5%;
+  left: 22.5%;
+  top: 58.5%;
+  width: 25.5%;
+  height: 25%;
   z-index: 2;
+  //background-color: yellow; 
   @include respond(phone) {
     position: absolute;
     left: auto;
@@ -489,27 +481,41 @@
   }
 }
 #chongdongyeon-btn {
-  top: -8vh;
-  left: 6vw;
+  top: 2vh;
+  left: 20vw;
   @include respond(phone) {
     right: 6vw;
     left: auto;
     top: auto;
   }
 }
+#chongdongyeon {
+  position: absolute;
+  top: 15vh;
+  left: 0%;
+  width: 98%;
+  z-index: 3;
+  height: 82vh;
+  @include respond(phone) {
+    height: 50vh;
+    width: 100%;
+    top: 48vh;
+    left: -5%;
+  }
+}
 #chongdongyeonHover {
   position: absolute;
-  top: 12vh;
-  left: 1%;
+  top: 14vh;
+  left: 0%;
   width: 99%;
   z-index: 3;
   height: 84vh;
   visibility: hidden;
   @include respond(phone) {
     height: 50vh;
-    width: 90%;
-    top: 47vh;
-    left: -4%;
+    width: 100%;
+    top: 48vh;
+    left: -5%;
   }
 }
 

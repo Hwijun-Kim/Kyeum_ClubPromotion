@@ -4,7 +4,7 @@ import Tilt from "react-tilt";
 import { Container, Row, Col } from "react-bootstrap";
 import PortfolioContext from "../../context/context";
 import Title from "components/booth/title";
-import event_img from "img/event_img.jpeg";
+import event_img from "img/main/keyevent_img.JPG";
 import Image from "react-bootstrap/Image";
 
 import Paper from "@material-ui/core/Paper";

@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-scroll";
 import PortfolioContext from "../../context/context";
-import testbg from "../../img/testbg.jpeg";
+import testbg from "../../img/main/event_test2.jpeg";
 
 const Header = () => {
   const { departmentObj } = useContext(PortfolioContext);
