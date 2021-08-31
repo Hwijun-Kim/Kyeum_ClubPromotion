@@ -126,6 +126,16 @@ const Main = () => {
     "저 조각들은 무언가를 부셔놓은 것 같았다",
     "어서 빨리 조각들을 찾아 구해줘야지!",
   ];
+
+  // const d_names = {
+  //   "사회연구":
+  //     "전시창작"
+  // "학술"
+  // "연행예술"
+  // "체육"
+  // "종교"
+  // "봉사"
+  // };
   async function setKeysPoint() {
     // 열쇠 위치 랜덤 배치 함수
     const getRandomValue = (num) => Math.floor(Math.random() * num);
@@ -135,16 +145,23 @@ const Main = () => {
 
     // 분과명 가져오기.
     const d_names = (await doc_all.get()).data()["contains"]
+    // const getKeys = [];
+    // for (var i = 0; i < d_names.length; i++) getKeys.push(false);
+    // localStorage.setItem("get_keys", JSON.stringify(getKeys));
 
     // 분과별 동아리 수에 따른 랜덤값 생성
     Promise.all( // 분과별 정보 불러오기(비동기과정) 병렬처리
       d_names.map(
         async (d_name) => {
           // 동아리이름이 들어있는 array의 길이값 활용
-          return (await dbService.collection("departments").doc(d_name).get()).data()["contains"].length;
+          const club_names = (await dbService.collection("departments").doc(d_name).get()).data()["contains"];
+          const random_value = getRandomValue(club_names.length);
+
+          return { [club_names[random_value].name]: false };
         }))
-      .then((nums) => { return nums.map(getRandomValue) })
-      .then((keyPoints) => { localStorage.getItem("key_points") ?? localStorage.setItem("key_points", keyPoints) });
+      .then((key_clubs) => { return Object.assign(...key_clubs) })
+      .then((keyPoints) => { localStorage.getItem("key_points") ?? localStorage.setItem("key_points", JSON.stringify(keyPoints)) });
+
   }
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

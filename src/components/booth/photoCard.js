@@ -16,7 +16,8 @@ const from = (i) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
 const trans = (r, s) =>
   `rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
-function Deck({ cards }) {
+function Deck({ cards, club_name }) {
+  console.log(club_name);
   const [gone] = useState(() => new Set()); // The set flags all the cards that are flicked out
   const [props, set] = useSprings(cards.length, (i) => ({
     ...to(i),
@@ -46,8 +47,16 @@ function Deck({ cards }) {
         setTimeout(() => gone.clear() || set((i) => to(i)), 600);
     }
   );
+
+  // const getKeyPoint = () => {
+  //   const kp = JSON.parse(localStorage.getItem("key_points"));
+  //   console.log("call getKeyPoint");
+  //   kp[club_name] = true;
+  //   localStorage.setItem("key_points", kp);
+  // }
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return props.map(({ x, y, rot, scale }, i) => (
+    // <animated.div key={i} style={{ x, y }} onClick={cards[i].slice(2, 5) === "key" ? getKeyPoint : getKeyPoint}>
     <animated.div key={i} style={{ x, y }}>
       {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
       <animated.div

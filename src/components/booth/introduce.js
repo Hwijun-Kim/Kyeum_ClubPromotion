@@ -29,7 +29,7 @@ const useStyles = makeStyles({
 
 const About = () => {
   const classes = useStyles();
-  const { activities, clubObj, key } = useContext(PortfolioContext);
+  const { activities, clubObj, key, name } = useContext(PortfolioContext);
   let contact_us = clubObj.contact_us;
   if (clubObj.contact_us === undefined) {
     contact_us = {
@@ -61,10 +61,19 @@ const About = () => {
     }
   }, [isLoading]);
 
+  const key_points = JSON.parse(localStorage.getItem('key_points'));
+  const isKeyPoint = localStorage.getItem('key_points') && key_points.hasOwnProperty(clubObj.name) && !key_points[clubObj.name];
+  // console.log(isKeyPoint);
+  // console.log(localStorage.getItem('get_keys'));
+  // console.log(JSON.parse(localStorage.getItem('get_keys')));
+  // console.log(JSON.parse(localStorage.getItem('get_keys'))[dNameToKeyNum[name.slice(0, -2)]]);
+  // const key_image = require(`../../img/keys/key${dNameToKeyNum[name.slice(0, -2)]}.PNG`)
+
   return isLoading ? (
     activities.map((url) => (
       <img key={url} src={url} className={classes.nonVisible}></img>
     ))
+    // makeActivities()
   ) : (
     <>
       <section id="about" className={key}>
@@ -73,7 +82,8 @@ const About = () => {
           <Row className="about-wrapper">
             <Col md={6} sm={12} id="contentVideo">
               <div id="contentroot">
-                <Photocard cards={activities} />
+                {isKeyPoint ? (<Photocard cards={activities} club_name={clubObj.name} />) : (<Photocard cards={activities.slice(1)} />)}
+                {/* <Photocard cards={activities} /> */}
               </div>
             </Col>
             {/* {activities.length !== 0 ?
