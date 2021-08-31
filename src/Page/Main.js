@@ -4,39 +4,40 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import { dbService, storageService } from "fbase";
+
 import Hero from "../components/booth/hero";
 import { PortfolioProvider } from "../context/context";
 import Introduce from "components/booth/introduce";
 import Contact from "components/booth/contact";
 import Footer from "components/booth/footer";
 import Projects from "components/booth/infomation";
-import imageMap from "../img/empty.jpeg";
-import imageMapMobile from "../img/empty_m.jpeg";
-import art from "../img/art.png";
-import social from "../img/social.png";
-import religion from "../img/religion.png";
-import sports from "../img/sports.png";
-import study from "../img/study.png";
-import volunteer from "../img/volunteer.png";
-import exhibition from "../img/exhibition.png";
-import chongdongyeon from "../img/chongdongyeon.png";
-import art_b from "../img/art_b.png";
-import social_b from "../img/social_b.png";
-import religion_b from "../img/religion_b.png";
-import sports_b from "../img/sports_b.png";
-import study_b from "../img/study_b.png";
-import volunteer_b from "../img/volunteer_b.png";
-import exhibition_b from "../img/exhibition_b.png";
-import chongdongyeon_b from "../img/chongdongyeon_b.png";
-import art_btn from "../img/art_btn.png";
-import social_btn from "../img/social_btn.png";
-import religion_btn from "../img/religion_btn.png";
-import sports_btn from "../img/sports_btn.png";
-import study_btn from "../img/study_btn.png";
-import volunteer_btn from "../img/volunteer_btn.png";
-import exhibition_btn from "../img/exhibition_btn.png";
-import chongdongyeon_btn from "../img/chongdongyeon_btn.png";
-import paper from "../img/paper2.jpg";
+
+import imageMap from "../img/main/empty.jpeg";
+import imageMapMobile from "../img/main/empty_m.jpeg";
+import art from "../img/main/art.png";
+import social from "../img/main/social.png";
+import religion from "../img/main/religion.png";
+import sports from "../img/main/sports.png";
+import study from "../img/main/study.png";
+import volunteer from "../img/main/volunteer.png";
+import exhibition from "../img/main/exhibition.png";
+import chongdongyeon from "../img/main/chongdongyeon.png";
+import art_b from "../img/main/art_b.png";
+import social_b from "../img/main/social_b.png";
+import religion_b from "../img/main/religion_b.png";
+import sports_b from "../img/main/sports_b.png";
+import study_b from "../img/main/study_b.png";
+import volunteer_b from "../img/main/volunteer_b.png";
+import exhibition_b from "../img/main/exhibition_b.png";
+import chongdongyeon_b from "../img/main/chongdongyeon_b.png";
+import art_btn from "../img/main/art_btn.png";
+import social_btn from "../img/main/social_btn.png";
+import religion_btn from "../img/main/religion_btn.png";
+import sports_btn from "../img/main/sports_btn.png";
+import study_btn from "../img/main/study_btn.png";
+import volunteer_btn from "../img/main/volunteer_btn.png";
+import exhibition_btn from "../img/main/exhibition_btn.png";
+import chongdongyeon_btn from "../img/main/chongdongyeon_btn.png";
 import TextField from "@material-ui/core/TextField";
 
 import popup1 from "../img/장면1.JPG";
@@ -55,8 +56,8 @@ import Fade from "react-reveal/Fade";
 import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
 import { Link } from "react-router-dom";
-import banner from "../img/banner.png";
-import banner_m from "../img/banner_m.png";
+import banner from "../img/main/banner.png";
+import banner_m from "../img/main/banner_m.png";
 import Jump from "react-reveal/Jump";
 import Modal from "react-bootstrap/Modal";
 import TypeWriter from "react-typewriter";
@@ -314,7 +315,7 @@ const Main = () => {
             ) : // (isDesktop ? <Button>제출</Button> : <></> )
               popupIdx == 0 ? (
                 <Fade top duration={500} distance={"20px"}>
-                  <span className="userName">{userName}!</span>
+                  <span className="userName"> {userName}!</span>
                 </Fade>
               ) : (
                 <></>
