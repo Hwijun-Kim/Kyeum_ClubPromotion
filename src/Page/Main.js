@@ -12,8 +12,8 @@ import Contact from "components/booth/contact";
 import Footer from "components/booth/footer";
 import Projects from "components/booth/infomation";
 
-import imageMap from "../img/main/empty.jpeg";
-import imageMapMobile from "../img/main/empty_m.jpeg";
+import imageMap from "../img/main/empty.jpg";
+import imageMapMobile from "../img/main/empty_m.jpg";
 import art from "../img/main/art.png";
 import social from "../img/main/social.png";
 import religion from "../img/main/religion.png";
