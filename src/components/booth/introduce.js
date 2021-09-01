@@ -47,6 +47,14 @@ const About = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [keyPoints, setKeyPoints] = useState(JSON.parse(localStorage.getItem('key_points')));
+  const [isKeyPoint, setIsKeyPoint] = useState(
+    JSON.parse(localStorage.getItem('key_points')) // 값이 존재하는 지
+    && keyPoints.hasOwnProperty(clubObj.name) // 해당 동아리 이름이 있는지(랜덤으로 선택된 동아리 안에 있는지)
+    && !keyPoints[clubObj.name] // 아직 열쇠를 찾지 않았을 경우
+  );
+
   let prevHeight;
   useEffect(() => {
     if (window.innerWidth > 769) {
@@ -60,9 +68,6 @@ const About = () => {
       setIsLoading(false);
     }
   }, [isLoading]);
-
-  const key_points = JSON.parse(localStorage.getItem('key_points'));
-  const isKeyPoint = localStorage.getItem('key_points') && key_points.hasOwnProperty(clubObj.name) && !key_points[clubObj.name];
   // console.log(isKeyPoint);
   // console.log(localStorage.getItem('get_keys'));
   // console.log(JSON.parse(localStorage.getItem('get_keys')));
@@ -82,7 +87,8 @@ const About = () => {
           <Row className="about-wrapper">
             <Col md={6} sm={12} id="contentVideo">
               <div id="contentroot">
-                {isKeyPoint ? (<Photocard cards={activities} club_name={clubObj.name} />) : (<Photocard cards={activities.slice(1)} />)}
+                {/* {isKeyPoint ? (<Photocard cards={activities} club_name={clubObj.name} />) : (<Photocard cards={activities.slice(1)} />)} */}
+                <Photocard cards={activities} club_name={clubObj.name} />
                 {/* <Photocard cards={activities} /> */}
               </div>
             </Col>

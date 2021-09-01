@@ -3,13 +3,13 @@ import Modal from "react-bootstrap/Modal";
 import Image from "react-bootstrap/Image";
 import Button from "@material-ui/core/Button";
 
-import jewelry1 from "../../img/IMG_1257.PNG";
-import jewelry2 from "../../img/IMG_1258.PNG";
-import jewelry3 from "../../img/IMG_1259.PNG";
-import jewelry4 from "../../img/IMG_1260.PNG";
-import jewelry5 from "../../img/IMG_1261.PNG";
-import jewelry6 from "../../img/IMG_1262.PNG";
-import jewelry7 from "../../img/IMG_1263.PNG";
+import jewelry1 from "../../img/jewelry/jewelry1.PNG";
+import jewelry2 from "../../img/jewelry/jewelry2.PNG";
+import jewelry3 from "../../img/jewelry/jewelry3.PNG";
+import jewelry4 from "../../img/jewelry/jewelry4.PNG";
+import jewelry5 from "../../img/jewelry/jewelry5.PNG";
+import jewelry6 from "../../img/jewelry/jewelry6.PNG";
+import jewelry7 from "../../img/jewelry/jewelry7.PNG";
 
 const jewelryImgs = [
 	jewelry1,
@@ -31,13 +31,15 @@ const EndingPopup = () => {
 	// useEffect(() => {}, [idx]);
 	return (
 		<Modal show={show} onHide={handleClose} keyboard={false} centered>
-			<Modal.Header closeButton>
+			{/* <Modal.Header closeButton>
 				<Modal.Title>견습 트레져 헌터가 되다!</Modal.Title>
-			</Modal.Header>
-			<Modal.Body>
-				<Image src={jewelryImgs[randomIdx]} fluid />
-				<div id="completeCard">
-					<span id="completeCardMent">{userName}</span>
+			</Modal.Header> */}
+			<Modal.Body >
+				<div style={{ display: "flex", flexDirection: "column", alignContent: "center" }}>
+					<div id="completeCard" style={{ position: "relative", top: "6rem", left: "25%" }}>
+						<span id="completeCardMent" style={{ fontSize: "3rem" }}>{userName}</span>
+					</div>
+					<Image src={jewelryImgs[randomIdx]} fluid />
 				</div>
 			</Modal.Body>
 			<Modal.Footer>
@@ -46,7 +48,7 @@ const EndingPopup = () => {
 				</Button>
 				{/* <Button variant="primary">Understood</Button> */}
 			</Modal.Footer>
-		</Modal>
+		</Modal >
 	);
 };
 

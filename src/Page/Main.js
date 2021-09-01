@@ -161,7 +161,6 @@ const Main = () => {
         }))
       .then((key_clubs) => { return Object.assign(...key_clubs) })
       .then((keyPoints) => { localStorage.getItem("key_points") ?? localStorage.setItem("key_points", JSON.stringify(keyPoints)) });
-
   }
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

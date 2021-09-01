@@ -1,5 +1,5 @@
 import { render } from "react-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSprings, animated, to as interpolate } from "react-spring";
 import { useDrag } from "react-use-gesture";
 
@@ -17,6 +17,8 @@ const trans = (r, s) =>
   `rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
 function Deck({ cards, club_name }) {
+  const [keyPoints, setKeyPoints] = useState(JSON.parse(localStorage.getItem("key_points")));
+
   const [gone] = useState(() => new Set()); // The set flags all the cards that are flicked out
   const [props, set] = useSprings(cards.length, (i) => ({
     ...to(i),
@@ -47,21 +49,26 @@ function Deck({ cards, club_name }) {
     }
   );
 
-  const kp = JSON.parse(localStorage.getItem("key_points"));
-  const hasKey = kp.hasOwnProperty(club_name) && !kp[club_name];
-  // console.log(hasKey);
+  const hasKey = keyPoints.hasOwnProperty(club_name) && !keyPoints[club_name];
+  // console.log(keyPoints);
   const getKeyPoint = () => {
-    // console.log("call getKeyPoint");
-    kp[club_name] = true;
-    localStorage.setItem("key_points", JSON.stringify(kp));
-    alert("열쇠를 찾으셨습니다!");
+    console.log("call getKeyPoint");
+    keyPoints[club_name] = true;
+    setKeyPoints(keyPoints);
+    localStorage.setItem("key_points", JSON.stringify(keyPoints));
   }
+  // useEffect(() => {
+  //   if (!keyChange) {
+  //     console.log("변경발생전")
+  //   } else {
+  //     console.log("변경발생후")
+  //   }
+  // })
 
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
-  return props.map(({ x, y, rot, scale }, i) => (
-    <animated.div key={i} style={{ x, y }}>
-      {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
-      {hasKey && cards[i].search("0_key") != -1 ? (
+  return hasKey ?
+    (props.map(({ x, y, rot, scale }, i) => (
+      <animated.div key={i} style={{ x, y }}>
         <animated.div
           {...bind(i)}
           style={{
@@ -70,7 +77,9 @@ function Deck({ cards, club_name }) {
           }}
           onClick={getKeyPoint}
         />
-      ) : (
+      </animated.div>
+    ))) : (props.slice(1).map(({ x, y, rot, scale }, i) => (
+      <animated.div key={i} style={{ x, y }}>
         <animated.div
           {...bind(i)}
           style={{
@@ -78,9 +87,30 @@ function Deck({ cards, club_name }) {
             backgroundImage: `url(${cards[i]})`,
           }}
         />
-      )}
-    </animated.div>
-  ));
+      </animated.div>
+    )));
+  // return props.map(({ x, y, rot, scale }, i) => (
+  //   <animated.div key={i} style={{ x, y }}>
+  //     {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
+  //     {hasKey && cards[i].search("0_key") != -1 ? (
+  //       <animated.div
+  //         {...bind(i)}
+  //         style={{
+  //           transform: interpolate([rot, scale], trans),
+  //           backgroundImage: `url(${cards[i]})`,
+  //         }}
+  //         onClick={getKeyPoint}
+  //       />
+  //     ) : (
+  //       <animated.div
+  //         {...bind(i)}
+  //         style={{
+  //           transform: interpolate([rot, scale], trans),
+  //           backgroundImage: `url(${cards[i]})`,
+  //         }}
+  //       />
+  //     )}
+  //   </animated.div>
+  // ));
 }
-
 export default Deck;
