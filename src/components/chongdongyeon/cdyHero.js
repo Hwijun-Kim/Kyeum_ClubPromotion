@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-scroll";
 import PortfolioContext from "../../context/context";
-import testbg from "../../img/main/event_final.JPG";
+import testbg from "../../img/main/event_bg.jpeg";
 
 const Header = () => {
   const { departmentObj } = useContext(PortfolioContext);
@@ -38,7 +38,7 @@ const Header = () => {
         >
           <h1 className="hero-title">
             {/* {title || 'Hi, my name is'}{' '} */}
-            <span className={`text-color-main`}>{name}</span>
+            <span className={`text-color-main ${key}`}>{name}</span>
             <br />
             {hashtag.map((tag, i) => {
               return (

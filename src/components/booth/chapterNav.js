@@ -38,11 +38,21 @@ import TIME from "../../img/icon/TIME.svg";
 import 대건안드레아 from "../../img/icon/대건안드레아.svg";
 import 스카우트 from "../../img/icon/스카우트.svg";
 import FC명지 from "../../img/icon/FC명지.svg";
+import 명지챌린저스 from "../../img/icon/명지챌린저스.svg";
+import 씨네메이션 from "../../img/icon/씨네메이션.svg";
+import MIRS from "../../img/icon/MIRS.svg";
+import MGH from "../../img/icon/MGH.svg";
+import 극예술연구회_알 from "../../img/icon/극예술알.svg";
 
 const Chapternav = () => {
   const { departmentObj } = useContext(PortfolioContext);
   const { id, contains } = departmentObj;
   const dic = {
+    명지챌린저스: 명지챌린저스,
+    씨네메이션: 씨네메이션,
+    MIRS: MIRS,
+    MGH: MGH,
+    극예술연구회_알: 극예술연구회_알,
     CCC: CCC,
     실로암: 실로암,
     CFM: CFM,
