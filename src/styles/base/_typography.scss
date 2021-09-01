@@ -197,7 +197,7 @@ a:hover {
   // Responsive text purple style
   @include respond(phone) {
     background-image: none;
-    -webkit-text-fill-color: black;
+    -webkit-text-fill-color: #fbf2c3;
     // font-size: 2em;
   }
 
