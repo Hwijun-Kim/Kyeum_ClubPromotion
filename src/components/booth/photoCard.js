@@ -66,33 +66,9 @@ function Deck({ cards, club_name }) {
   // })
 
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
-  return hasKey ?
-    (props.map(({ x, y, rot, scale }, i) => (
-      <animated.div key={i} style={{ x, y }}>
-        <animated.div
-          {...bind(i)}
-          style={{
-            transform: interpolate([rot, scale], trans),
-            backgroundImage: `url(${cards[i]})`,
-          }}
-          onClick={getKeyPoint}
-        />
-      </animated.div>
-    ))) : (props.slice(1).map(({ x, y, rot, scale }, i) => (
-      <animated.div key={i} style={{ x, y }}>
-        <animated.div
-          {...bind(i)}
-          style={{
-            transform: interpolate([rot, scale], trans),
-            backgroundImage: `url(${cards[i]})`,
-          }}
-        />
-      </animated.div>
-    )));
-  // return props.map(({ x, y, rot, scale }, i) => (
-  //   <animated.div key={i} style={{ x, y }}>
-  //     {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
-  //     {hasKey && cards[i].search("0_key") != -1 ? (
+  // return hasKey ?
+  //   (props.map(({ x, y, rot, scale }, i) => (
+  //     <animated.div key={i} style={{ x, y }}>
   //       <animated.div
   //         {...bind(i)}
   //         style={{
@@ -101,7 +77,9 @@ function Deck({ cards, club_name }) {
   //         }}
   //         onClick={getKeyPoint}
   //       />
-  //     ) : (
+  //     </animated.div>
+  //   ))) : (props.slice(1).map(({ x, y, rot, scale }, i) => (
+  //     <animated.div key={i} style={{ x, y }}>
   //       <animated.div
   //         {...bind(i)}
   //         style={{
@@ -109,8 +87,30 @@ function Deck({ cards, club_name }) {
   //           backgroundImage: `url(${cards[i]})`,
   //         }}
   //       />
-  //     )}
-  //   </animated.div>
-  // ));
+  //     </animated.div>
+  //   )));
+  return props.map(({ x, y, rot, scale }, i) => (
+    <animated.div key={i} style={{ x, y }}>
+      {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
+      {hasKey && cards[i].search("0_key") != -1 ? (
+        <animated.div
+          {...bind(i)}
+          style={{
+            transform: interpolate([rot, scale], trans),
+            backgroundImage: `url(${cards[i]})`,
+          }}
+          onClick={getKeyPoint}
+        />
+      ) : (
+        <animated.div
+          {...bind(i)}
+          style={{
+            transform: interpolate([rot, scale], trans),
+            backgroundImage: `url(${cards[i]})`,
+          }}
+        />
+      )}
+    </animated.div>
+  ));
 }
 export default Deck;
