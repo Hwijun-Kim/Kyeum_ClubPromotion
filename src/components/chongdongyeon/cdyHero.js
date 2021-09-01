@@ -38,7 +38,7 @@ const Header = () => {
         >
           <h1 className="hero-title">
             {/* {title || 'Hi, my name is'}{' '} */}
-            <span className={`text-color-main `}>{name}</span>
+            <span className={`text-color-main`}>{name}</span>
             <br />
             {hashtag.map((tag, i) => {
               return (

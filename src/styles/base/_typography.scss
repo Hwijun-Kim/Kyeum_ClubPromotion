@@ -186,7 +186,11 @@ a:hover {
 }
 
 .text-color-main.chongdongyeon {
-  
+  background-image: linear-gradient(
+    135deg,
+    $chongdongyeon-primary-color 0%,
+    $chongdongyeon-secondary-color 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: black;
 
