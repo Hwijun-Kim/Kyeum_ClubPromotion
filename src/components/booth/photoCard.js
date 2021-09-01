@@ -59,7 +59,7 @@ function Deck({ cards, club_name }) {
     keyPoints[sub_club_name] = true;
     localStorage.setItem("key_points", JSON.stringify(keyPoints));
     setTimeout(() => gone.clear() || set((i) => to(i)), 600);
-    alert("축하합니다. 열쇠 조각을 찾았습니다");
+    alert("찾았다!! 열쇠 조각을 찾았습니다!!!!");
     setHasKey(false);
   }
 
