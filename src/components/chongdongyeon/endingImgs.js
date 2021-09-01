@@ -20,6 +20,9 @@ const keyImgs = [keyImg1, keyImg2, keyImg3, keyImg4, keyImg5, keyImg6, keyImg7];
 const EndingImgs = () => {
 	const [idx, setIdx] = useState(0);
 	const [showPopup, setShowPopup] = useState(false);
+	const [isDesktop, setIsDesktop] = useState(false);
+	const [isMobile, setIsMobile] = useState(false);
+	const [isTab, setIsTab] = useState(false);
 
 	const keyPoints = localStorage.getItem("key_points")
 		? JSON.parse(localStorage.getItem("key_points"))
@@ -32,6 +35,18 @@ const EndingImgs = () => {
 	// 	setIdx(endingImgs.length - 1);
 	// }
 	// useEffect(() => {}, [idx]);
+	useEffect(() => {
+		if (window.innerWidth > 769) {
+			setIsDesktop(true);
+			setIsMobile(false);
+		} else if(window.innerWidth > 500) {
+			setIsTab(true);
+		} 
+		else {
+			setIsMobile(true);
+			setIsDesktop(false);
+		}
+	}, []);
 	return keyPoints ? (
 		<>
 			{showPopup ? <EndingPopup setShowPopup={setShowPopup} /> : <></>}
@@ -84,7 +99,7 @@ const EndingImgs = () => {
 					<img
 						id={`sample${i}`}
 						src={img}
-						style={{
+						style={isDesktop?{
 							position: "absolute",
 							// top: 0,
 							padding: "10%",
@@ -97,7 +112,20 @@ const EndingImgs = () => {
 							zIndex: 1,
 							right: "45%",
 							top: "-18%",
-						}}
+						}:(isTab?{}:{
+							position: "absolute",
+							// top: 0,
+							padding: "10%",
+							width: "60%",
+							// maxWidth: "360px",
+							// height: "50%",
+							objectFit: "cover",
+							objectPosition: "center",
+							// maxHeight: "720px",
+							zIndex: 1,
+							right: "46.4%",
+							top: "13%",
+						})}
 						onClick={() => {
 							const allKeys = Object.values(keyPoints).every((value) => value);
 							if (allKeys) {
