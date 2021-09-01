@@ -2,6 +2,7 @@ import { render } from "react-dom";
 import React, { useEffect, useState } from "react";
 import { useSprings, animated, to as interpolate } from "react-spring";
 import { useDrag } from "react-use-gesture";
+import openDepartmentName from '../../context/openDepartment';
 
 // These two are just helpers, they curate spring data, values that are later being interpolated into css
 const to = (i) => ({
@@ -17,10 +18,11 @@ const trans = (r, s) =>
   `rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
 function Deck({ cards, club_name }) {
+  const sub_club_name = club_name.substring(0, 2);
   const keyPoints = localStorage.getItem('key_points') ? JSON.parse(localStorage.getItem('key_points')) : null;
-  const [hasKey, setHasKey] = useState(keyPoints && keyPoints.hasOwnProperty(club_name.substring(0, 2)) && !keyPoints[club_name.substring(0, 2)]);
-  console.log(hasKey);
-  console.log(club_name.substring(0, 2));
+  const [hasKey, setHasKey] = useState(keyPoints && openDepartmentName.includes(sub_club_name) && keyPoints.hasOwnProperty(sub_club_name) && !keyPoints[sub_club_name]);
+  // console.log(hasKey);
+  // console.log(club_name.substring(0, 2));
 
   const [gone] = useState(() => new Set()); // The set flags all the cards that are flicked out
   const [props, set] = useSprings(cards.length, (i) => ({
@@ -54,7 +56,7 @@ function Deck({ cards, club_name }) {
   );
 
   const getKeyPoint = () => {
-    keyPoints[club_name.substring(0, 2)] = true;
+    keyPoints[sub_club_name] = true;
     localStorage.setItem("key_points", JSON.stringify(keyPoints));
     setTimeout(() => gone.clear() || set((i) => to(i)), 600);
     alert("축하합니다. 열쇠 조각을 찾았습니다");
