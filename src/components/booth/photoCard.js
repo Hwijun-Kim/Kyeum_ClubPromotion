@@ -17,8 +17,8 @@ const trans = (r, s) =>
   `rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
 function Deck({ cards, club_name }) {
-  const [keyPoints, setKeyPoints] = useState(JSON.parse(localStorage.getItem("key_points")));
-  const [hasKey, setHasKey] = useState(keyPoints.hasOwnProperty(club_name) && !keyPoints[club_name]);
+  const keyPoints = localStorage.getItem('key_points') ? JSON.parse(localStorage.getItem('key_points')) : null;
+  const [hasKey, setHasKey] = useState(keyPoints && keyPoints.hasOwnProperty(club_name) && !keyPoints[club_name]);
 
   const [gone] = useState(() => new Set()); // The set flags all the cards that are flicked out
   const [props, set] = useSprings(cards.length, (i) => ({
