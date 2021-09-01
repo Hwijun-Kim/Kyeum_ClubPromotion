@@ -397,42 +397,42 @@ const Main = () => {
               <></>
             )}
             {popupIdx == 1 ? (
-              <Fade top duration={1000} delay={6500} distance={"20px"}>
+              <Fade top duration={1000} delay={3000} distance={"20px"}>
                 <span>{popupText2[1]}</span>
               </Fade>
             ) : (
               <></>
             )}
             {popupIdx == 2 ? (
-              <Fade top duration={1000} delay={5000} distance={"20px"}>
+              <Fade top duration={1000} delay={3000} distance={"20px"}>
                 <span>{popupText2[2]}</span>
               </Fade>
             ) : (
               <></>
             )}
             {popupIdx == 4 ? (
-              <Fade top duration={1000} delay={4000} distance={"20px"}>
+              <Fade top duration={1000} delay={3000} distance={"20px"}>
                 <span>{popupText2[4]}</span>
               </Fade>
             ) : (
               <></>
             )}
             {popupIdx == 6 ? (
-              <Fade top duration={1000} delay={4000} distance={"20px"}>
+              <Fade top duration={1000} delay={3000} distance={"20px"}>
                 <span>{popupText2[6]}</span>
               </Fade>
             ) : (
               <></>
             )}
             {popupIdx == 7 ? (
-              <Fade top duration={1000} delay={4000} distance={"20px"}>
+              <Fade top duration={1000} delay={3000} distance={"20px"}>
                 <span>{popupText2[7]}</span>
               </Fade>
             ) : (
               <></>
             )}
             {popupIdx == 8 ? (
-              <Fade top duration={1000} delay={4000} distance={"20px"}>
+              <Fade top duration={1000} delay={3000} distance={"20px"}>
                 <span>{popupText2[8]}</span>
               </Fade>
             ) : (
@@ -448,7 +448,7 @@ const Main = () => {
           ) : (
             <></>
           )}
-          {popupIdx != 5 ? (
+          {popupIdx != 8 ? (
             <Button variant="primary" onClick={handleNext}>
               Next
             </Button>
