@@ -22,7 +22,7 @@ const jewelryImgs = [
 ];
 
 const EndingPopup = ({ setShowPopup }) => {
-	const randomIdx = Math.floor(Math.random() * 7);
+	const jewelryIdx = localStorage.getItem("jewelry_idx") ? localStorage.getItem("jewelry_idx") : 0;
 	const [show, setShow] = useState(true);
 	const [userName, setUserName] = useState(localStorage.getItem("mju_name"));
 	const handleClose = () => setShow(false);
@@ -55,7 +55,7 @@ const EndingPopup = ({ setShowPopup }) => {
 							{userName}
 						</span>
 					</div>
-					<Image src={jewelryImgs[randomIdx]} fluid />
+					<Image src={jewelryImgs[jewelryIdx]} fluid />
 				</div>
 			</Modal.Body>
 			<Modal.Footer>

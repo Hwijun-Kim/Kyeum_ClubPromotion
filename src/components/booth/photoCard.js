@@ -18,7 +18,9 @@ const trans = (r, s) =>
 
 function Deck({ cards, club_name }) {
   const keyPoints = localStorage.getItem('key_points') ? JSON.parse(localStorage.getItem('key_points')) : null;
-  const [hasKey, setHasKey] = useState(keyPoints && keyPoints.hasOwnProperty(club_name) && !keyPoints[club_name]);
+  const [hasKey, setHasKey] = useState(keyPoints && keyPoints.hasOwnProperty(club_name.substring(0, 2)) && !keyPoints[club_name.substring(0, 2)]);
+  console.log(hasKey);
+  console.log(club_name.substring(0, 2));
 
   const [gone] = useState(() => new Set()); // The set flags all the cards that are flicked out
   const [props, set] = useSprings(cards.length, (i) => ({
@@ -52,7 +54,7 @@ function Deck({ cards, club_name }) {
   );
 
   const getKeyPoint = () => {
-    keyPoints[club_name] = true;
+    keyPoints[club_name.substring(0, 2)] = true;
     localStorage.setItem("key_points", JSON.stringify(keyPoints));
     setTimeout(() => gone.clear() || set((i) => to(i)), 600);
     alert("축하합니다. 열쇠 조각을 찾았습니다");

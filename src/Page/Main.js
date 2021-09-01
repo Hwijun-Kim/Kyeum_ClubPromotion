@@ -157,7 +157,7 @@ const Main = () => {
           const club_names = (await dbService.collection("departments").doc(d_name).get()).data()["contains"];
           const random_value = getRandomValue(club_names.length);
 
-          return { [club_names[random_value].key]: false };
+          return { [club_names[random_value].key.substring(0, 2)]: false };
         }))
       .then((key_clubs) => { return Object.assign(...key_clubs) })
       .then((keyPoints) => { localStorage.getItem("key_points") ?? localStorage.setItem("key_points", JSON.stringify(keyPoints)) });
@@ -169,6 +169,7 @@ const Main = () => {
       const a = document.getElementById("nameInput");
       let ment = document.getElementById("ment2");
       localStorage.setItem("mju_name", a.value);
+      localStorage.setItem("jewelry_idx", JSON.stringify(Math.floor(Math.random() * 7)));
       setUserName(a.value);
       setKeysPoint();
     }
@@ -180,6 +181,7 @@ const Main = () => {
         setHelperText("이름을 입력해주세요!");
       } else {
         localStorage.setItem("mju_name", a.value);
+        localStorage.setItem("jewelry_idx", JSON.stringify(Math.floor(Math.random() * 7)));
         setUserName(a.value);
         setKeysPoint();
       }
