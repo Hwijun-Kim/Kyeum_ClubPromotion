@@ -21,19 +21,21 @@ const EndingImgs = () => {
 	const [idx, setIdx] = useState(0);
 	const [showPopup, setShowPopup] = useState(false);
 
-	const [keyPoints, setkeyPoints] = useState(JSON.parse(localStorage.getItem('key_points')));
+	const keyPoints = localStorage.getItem("key_points")
+		? JSON.parse(localStorage.getItem("key_points"))
+		: null;
+	// const keyPoints = JSON.parse(localStorage.getItem('key_points'));
+	// const allKeys = Object.values(keyPoints).every((value) => value);
+	// console.log(allKeys);
 
 	// if (idx >= endingImgs.length) {
 	// 	setIdx(endingImgs.length - 1);
 	// }
 	// useEffect(() => {}, [idx]);
-	return (
-		// <div style={{
-		// 	position: "relative", width: "100%", height: "100%"
-		// }}>
+	return keyPoints ? (
 		<>
-			{/* {showPopup ? <EndingPopup /> : <></>}
-			<img
+			{showPopup ? <EndingPopup setShowPopup={setShowPopup} /> : <></>}
+			{/* <img
 				id="sample"
 				src={endingImgs[idx]}
 				style={{
@@ -54,7 +56,7 @@ const EndingImgs = () => {
 			/> */}
 			<img
 				id="sample"
-				src={endingImgs[0]}
+				src={endingImgs[idx]}
 				style={{
 					// position: "absolute",
 					width: "100%",
@@ -64,6 +66,17 @@ const EndingImgs = () => {
 					objectPosition: "center",
 					maxHeight: "400px",
 					zIndex: 0,
+				}}
+				onClick={() => {
+					const allKeys = Object.values(keyPoints).every((value) => value);
+					if (allKeys) {
+						if (idx >= endingImgs.length - 1) {
+							setShowPopup(true);
+						} else {
+							setIdx(idx + 1);
+						}
+					}
+					return null;
 				}}
 			/>
 			{keyImgs.map((img, i) => {
@@ -83,15 +96,110 @@ const EndingImgs = () => {
 							// maxHeight: "720px",
 							zIndex: 1,
 							right: "45%",
-							top: "-18%"
+							top: "-18%",
 						}}
-					/>) : (
+						onClick={() => {
+							const allKeys = Object.values(keyPoints).every((value) => value);
+							if (allKeys) {
+								if (idx >= endingImgs.length - 1) {
+									setShowPopup(true);
+								} else {
+									setIdx(idx + 1);
+								}
+							}
+							return null;
+						}}
+					/>
+				) : (
 					<></>
-				)
+				);
 			})}
-			{/* </div > */}
+		</>
+	) : (
+		<>
+			<img
+				id="sample"
+				src={endingImgs[0]}
+				style={{
+					// position: "absolute",
+					width: "100%",
+					maxWidth: "800px",
+					height: "100%",
+					objectFit: "cover",
+					objectPosition: "center",
+					maxHeight: "400px",
+					zIndex: 0,
+				}}
+			/>
 		</>
 	);
+	// return (
+	// 	<>
+	// 		{showPopup ? <EndingPopup /> : <></>}
+	// 		{/* <img
+	// 			id="sample"
+	// 			src={endingImgs[idx]}
+	// 			style={{
+	// 				width: "100%",
+	// 				maxWidth: "800px",
+	// 				height: "100%",
+	// 				objectFit: "cover",
+	// 				objectPosition: "center",
+	// 				maxHeight: "400px",
+	// 			}}
+	// 			onClick={() => {
+	// 				if (idx >= endingImgs.length - 1) {
+	// 					setShowPopup(true);
+	// 				} else {
+	// 					setIdx(idx + 1);
+	// 				}
+	// 			}}
+	// 		/> */}
+	// 		<img
+	// 			id="sample"
+	// 			src={endingImgs[0]}
+	// 			style={{
+	// 				// position: "absolute",
+	// 				width: "100%",
+	// 				maxWidth: "800px",
+	// 				height: "100%",
+	// 				objectFit: "cover",
+	// 				objectPosition: "center",
+	// 				maxHeight: "400px",
+	// 				zIndex: 0,
+	// 			}}
+	// 		/>
+	// 		{keyImgs.map((img, i) => {
+	// 			return Object.values(keyPoints)[i] ? (
+	// 				<img
+	// 					id={`sample${i}`}
+	// 					src={img}
+	// 					style={{
+	// 						position: "absolute",
+	// 						// top: 0,
+	// 						padding: "10%",
+	// 						width: "50%",
+	// 						// maxWidth: "360px",
+	// 						// height: "50%",
+	// 						objectFit: "cover",
+	// 						objectPosition: "center",
+	// 						// maxHeight: "720px",
+	// 						zIndex: 1,
+	// 						right: "45%",
+	// 						top: "-18%"
+	// 					}}
+
+	// 					onClick={() => {
+	// 						const allKeys = Object.values(keyPoints).every((value) => value);
+	// 						if (allKeys) return setShowPopup(true);
+	// 						return null;
+	// 					}}
+	// 				/>) : (
+	// 				<></>
+	// 			)
+	// 		})}
+	// 	</>
+	// );
 };
 
 export default EndingImgs;

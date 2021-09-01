@@ -17,7 +17,8 @@ const trans = (r, s) =>
   `rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
 function Deck({ cards, club_name }) {
-  const [keyPoints, setKeyPoints] = useState(JSON.parse(localStorage.getItem("key_points")));
+  const keyPoints = localStorage.getItem('key_points') ? JSON.parse(localStorage.getItem('key_points')) : null;
+  const [hasKey, setHasKey] = useState(keyPoints && keyPoints.hasOwnProperty(club_name) && !keyPoints[club_name]);
 
   const [gone] = useState(() => new Set()); // The set flags all the cards that are flicked out
   const [props, set] = useSprings(cards.length, (i) => ({
@@ -44,31 +45,54 @@ function Deck({ cards, club_name }) {
           config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 },
         };
       });
-      if (!down && gone.size === cards.length)
+      const card_length = hasKey ? cards.length : cards.length - 1;
+      if (!down && gone.size === card_length)
         setTimeout(() => gone.clear() || set((i) => to(i)), 600);
     }
   );
 
-  const hasKey = keyPoints.hasOwnProperty(club_name) && !keyPoints[club_name];
-  // console.log(keyPoints);
   const getKeyPoint = () => {
-    console.log("call getKeyPoint");
     keyPoints[club_name] = true;
-    setKeyPoints(keyPoints);
     localStorage.setItem("key_points", JSON.stringify(keyPoints));
+    setTimeout(() => gone.clear() || set((i) => to(i)), 600);
+    alert("축하합니다. 열쇠 조각을 찾았습니다");
+    setHasKey(false);
   }
-  // useEffect(() => {
-  //   if (!keyChange) {
-  //     console.log("변경발생전")
-  //   } else {
-  //     console.log("변경발생후")
-  //   }
-  // })
 
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
-  // return hasKey ?
-  //   (props.map(({ x, y, rot, scale }, i) => (
-  //     <animated.div key={i} style={{ x, y }}>
+
+
+  return hasKey ?
+    props.map(
+      ({ x, y, rot, scale }, i) => (
+        <animated.div key={i} style={{ x, y }}>
+          <animated.div
+            {...bind(i)}
+            style={{
+              transform: interpolate([rot, scale], trans),
+              backgroundImage: `url(${cards[i]})`,
+            }}
+            onClick={i == 0 ? getKeyPoint : null}
+          />
+        </animated.div>
+      )
+    ) : props.map(({ x, y, rot, scale }, i) => (
+      i != 0 ? (
+        < animated.div key={i} style={{ x, y }}>
+          <animated.div
+            {...bind(i)}
+            style={{
+              transform: interpolate([rot, scale], trans),
+              backgroundImage: `url(${cards[i]})`,
+            }}
+          />
+        </animated.div >
+      ) : (<></>)
+    ));
+  // return props.map(({ x, y, rot, scale }, i) => (
+  //   <animated.div key={i} style={{ x, y }}>
+  //     {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
+  //     {hasKey && cards[i].search("0_key") != -1 ? (
   //       <animated.div
   //         {...bind(i)}
   //         style={{
@@ -77,9 +101,7 @@ function Deck({ cards, club_name }) {
   //         }}
   //         onClick={getKeyPoint}
   //       />
-  //     </animated.div>
-  //   ))) : (props.slice(1).map(({ x, y, rot, scale }, i) => (
-  //     <animated.div key={i} style={{ x, y }}>
+  //     ) : (
   //       <animated.div
   //         {...bind(i)}
   //         style={{
@@ -87,30 +109,8 @@ function Deck({ cards, club_name }) {
   //           backgroundImage: `url(${cards[i]})`,
   //         }}
   //       />
-  //     </animated.div>
-  //   )));
-  return props.map(({ x, y, rot, scale }, i) => (
-    <animated.div key={i} style={{ x, y }}>
-      {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
-      {hasKey && cards[i].search("0_key") != -1 ? (
-        <animated.div
-          {...bind(i)}
-          style={{
-            transform: interpolate([rot, scale], trans),
-            backgroundImage: `url(${cards[i]})`,
-          }}
-          onClick={getKeyPoint}
-        />
-      ) : (
-        <animated.div
-          {...bind(i)}
-          style={{
-            transform: interpolate([rot, scale], trans),
-            backgroundImage: `url(${cards[i]})`,
-          }}
-        />
-      )}
-    </animated.div>
-  ));
+  //     )}
+  //   </animated.div>
+  // ));
 }
 export default Deck;

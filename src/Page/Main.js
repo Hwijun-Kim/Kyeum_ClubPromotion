@@ -157,7 +157,7 @@ const Main = () => {
           const club_names = (await dbService.collection("departments").doc(d_name).get()).data()["contains"];
           const random_value = getRandomValue(club_names.length);
 
-          return { [club_names[random_value].name]: false };
+          return { [club_names[random_value].key]: false };
         }))
       .then((key_clubs) => { return Object.assign(...key_clubs) })
       .then((keyPoints) => { localStorage.getItem("key_points") ?? localStorage.setItem("key_points", JSON.stringify(keyPoints)) });

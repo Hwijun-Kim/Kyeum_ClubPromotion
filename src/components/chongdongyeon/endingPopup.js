@@ -21,7 +21,7 @@ const jewelryImgs = [
 	jewelry7,
 ];
 
-const EndingPopup = () => {
+const EndingPopup = ({ setShowPopup }) => {
 	const randomIdx = Math.floor(Math.random() * 7);
 	const [show, setShow] = useState(true);
 	const [userName, setUserName] = useState(localStorage.getItem("mju_name"));
@@ -29,26 +29,42 @@ const EndingPopup = () => {
 	const handleShow = () => setShow(true);
 
 	// useEffect(() => {}, [idx]);
+	useEffect(() => {
+		if (!show) {
+			setShowPopup(false);
+		}
+	}, [show]);
 	return (
 		<Modal show={show} onHide={handleClose} keyboard={false} centered>
 			{/* <Modal.Header closeButton>
 				<Modal.Title>견습 트레져 헌터가 되다!</Modal.Title>
 			</Modal.Header> */}
-			<Modal.Body >
-				<div style={{ display: "flex", flexDirection: "column", alignContent: "center" }}>
-					<div id="completeCard" style={{ position: "relative", top: "6rem", left: "25%" }}>
-						<span id="completeCardMent" style={{ fontSize: "3rem" }}>{userName}</span>
+			<Modal.Body>
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						alignContent: "center",
+					}}
+				>
+					<div
+						id="completeCard"
+						style={{ position: "relative", top: "6rem", left: "25%" }}
+					>
+						<span id="completeCardMent" style={{ fontSize: "3rem" }}>
+							{userName}
+						</span>
 					</div>
 					<Image src={jewelryImgs[randomIdx]} fluid />
 				</div>
 			</Modal.Body>
 			<Modal.Footer>
-				<Button variant="secondary" onClick={handleClose}>
+				<Button variant="text" onClick={handleClose}>
 					Close
 				</Button>
 				{/* <Button variant="primary">Understood</Button> */}
 			</Modal.Footer>
-		</Modal >
+		</Modal>
 	);
 };
 
