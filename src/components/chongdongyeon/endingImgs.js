@@ -39,7 +39,7 @@ const EndingImgs = () => {
 		if (window.innerWidth > 769) {
 			setIsDesktop(true);
 			setIsMobile(false);
-		} else if(window.innerWidth > 500) {
+		} else if(window.innerWidth > 415) {
 			setIsTab(true);
 		} 
 		else {
@@ -112,7 +112,20 @@ const EndingImgs = () => {
 							zIndex: 1,
 							right: "45%",
 							top: "-18%",
-						}:(isTab?{}:{
+						}:(isTab?{
+							position: "absolute",
+							// top: 0,
+							padding: "10%",
+							width: "60%",
+							// maxWidth: "360px",
+							// height: "50%",
+							objectFit: "cover",
+							objectPosition: "center",
+							// maxHeight: "720px",
+							zIndex: 1,
+							right: "47.5%",
+							top: "-2%",
+						}:{
 							position: "absolute",
 							// top: 0,
 							padding: "10%",
