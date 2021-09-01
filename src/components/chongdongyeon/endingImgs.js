@@ -22,18 +22,17 @@ const EndingImgs = () => {
 	const [showPopup, setShowPopup] = useState(false);
 
 	const [keyPoints, setkeyPoints] = useState(JSON.parse(localStorage.getItem('key_points')));
+	// const allKeys = Object.values(keyPoints).every((value) => value);
+	// console.log(allKeys);
 
 	// if (idx >= endingImgs.length) {
 	// 	setIdx(endingImgs.length - 1);
 	// }
 	// useEffect(() => {}, [idx]);
 	return (
-		// <div style={{
-		// 	position: "relative", width: "100%", height: "100%"
-		// }}>
 		<>
-			{/* {showPopup ? <EndingPopup /> : <></>}
-			<img
+			{showPopup ? <EndingPopup /> : <></>}
+			{/* <img
 				id="sample"
 				src={endingImgs[idx]}
 				style={{
@@ -85,11 +84,16 @@ const EndingImgs = () => {
 							right: "45%",
 							top: "-18%"
 						}}
+
+						onClick={() => {
+							const allKeys = Object.values(keyPoints).every((value) => value);
+							if (allKeys) return setShowPopup(true);
+							return null;
+						}}
 					/>) : (
 					<></>
 				)
 			})}
-			{/* </div > */}
 		</>
 	);
 };
