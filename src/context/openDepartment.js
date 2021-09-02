@@ -20,5 +20,5 @@ const 종교 = ["CC", "실로", "CF", "UB", "대건"]
 const 봉사 = ["너나", "RC", "PT", "키비", "나누"]
 
 // const export_obj = 연행예술.concat(종교, 체육, 학술)
-const export_obj = 연행예술;
+const export_obj = 사회연구;
 export default export_obj;
