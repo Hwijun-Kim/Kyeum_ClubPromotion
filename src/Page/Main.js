@@ -107,13 +107,13 @@ const Main = () => {
   const popupText1 = [
     "내 이름은",
     "저 멀리 먼저 도착해 있는 오키와 도키가 보인다",
-    "엇 무슨 일이지? 수상한 사람들이 나타났다",
+    "엇 그런데 무슨 일이지? 수상한 사람들이 나타났다",
     "",
     "너희도 보물을 찾으러 왔구나!",
     "으악!!!!!!",
     "오키와 도키는 해적들에게 당한 것 같다!",
-    "해적들은 조각들을 던지고 보물섬을 떠났다",
-    "저 조각들이 오키 도키를 구할 수 있는 단서같다!",
+    "잠시 후 해적들은 조각들을 던지고 보물섬을 떠났다",
+    "저 조각들이 오키와 도키를 구할 수 있는 단서인 것 같다!",
   ];
   const popupText2 = [
     "오늘 오키, 도키와 보물섬 모험을 하기로 했다",
@@ -167,6 +167,7 @@ const Main = () => {
       let ment = document.getElementById("ment2");
       localStorage.setItem("mju_name", a.value);
       localStorage.setItem("jewelry_idx", JSON.stringify(Math.floor(Math.random() * 7)));
+      localStorage.setItem("is_open", JSON.stringify(false));
       setUserName(a.value);
       setKeysPoint();
     }
@@ -179,6 +180,7 @@ const Main = () => {
       } else {
         localStorage.setItem("mju_name", a.value);
         localStorage.setItem("jewelry_idx", JSON.stringify(Math.floor(Math.random() * 7)));
+        localStorage.setItem("isOpen", JSON.stringify(false));
         setUserName(a.value);
         setKeysPoint();
       }
