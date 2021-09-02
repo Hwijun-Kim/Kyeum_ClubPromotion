@@ -145,9 +145,6 @@ const Main = () => {
 
     // 분과명 가져오기.
     const d_names = (await doc_all.get()).data()["contains"]
-    // const getKeys = [];
-    // for (var i = 0; i < d_names.length; i++) getKeys.push(false);
-    // localStorage.setItem("get_keys", JSON.stringify(getKeys));
 
     // 분과별 동아리 수에 따른 랜덤값 생성
     Promise.all( // 분과별 정보 불러오기(비동기과정) 병렬처리

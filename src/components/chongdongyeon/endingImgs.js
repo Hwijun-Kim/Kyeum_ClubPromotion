@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import sampleImg from "../../img/questImg.jpeg";
-import sampleImg1 from "../../img/sample1.png";
-import sampleImg2 from "../../img/sample2.png";
-import sampleImg3 from "../../img/sample3.png";
-import sampleImg4 from "../../img/sample4.png";
+import endingImg1 from "../../img/ending/ending1.JPG";
+import endingImg2 from "../../img/ending/ending2.JPG";
+import endingImg3 from "../../img/ending/ending3.JPG";
+import endingImg4 from "../../img/ending/ending4.JPG";
+import endingImg5 from "../../img/ending/ending5.JPG";
 import EndingPopup from "./endingPopup";
 
 import keyImg1 from "../../img/keys/0_key1.PNG";
@@ -14,16 +14,24 @@ import keyImg5 from "../../img/keys/0_key5.PNG";
 import keyImg6 from "../../img/keys/0_key6.PNG";
 import keyImg7 from "../../img/keys/0_key7.PNG";
 
-const endingImgs = [sampleImg, sampleImg1, sampleImg2, sampleImg3, sampleImg4];
+const endingImgs = [endingImg1, endingImg2, endingImg3, endingImg4, endingImg5];
 const keyImgs = [keyImg1, keyImg2, keyImg3, keyImg4, keyImg5, keyImg6, keyImg7];
 
 const EndingImgs = () => {
-	const [idx, setIdx] = useState(0);
+	const isOpen = localStorage.getItem("is_open")
+		? JSON.parse(localStorage.getItem("is_open"))
+		: false;
+
+	const [idx, setIdx] = useState(isOpen ? 4 : 0);
 	const [showPopup, setShowPopup] = useState(false);
 
+	const [showKeys, setShowKeys] = useState(!isOpen);
+	// console.log(showKeys)
 	const keyPoints = localStorage.getItem("key_points")
 		? JSON.parse(localStorage.getItem("key_points"))
 		: null;
+	// console.log(Object.keys(keyPoints))
+	// console.log(Object.values(keyPoints))
 	// const keyPoints = JSON.parse(localStorage.getItem('key_points'));
 	// const allKeys = Object.values(keyPoints).every((value) => value);
 	// console.log(allKeys);
@@ -71,16 +79,18 @@ const EndingImgs = () => {
 					const allKeys = Object.values(keyPoints).every((value) => value);
 					if (allKeys) {
 						if (idx >= endingImgs.length - 1) {
+							localStorage.setItem("is_open", true);
 							setShowPopup(true);
 						} else {
 							setIdx(idx + 1);
+							setShowKeys(false);
 						}
 					}
 					return null;
 				}}
 			/>
 			{keyImgs.map((img, i) => {
-				return Object.values(keyPoints)[i] ? (
+				return showKeys && Object.values(keyPoints)[i] ? (
 					<img
 						id={`sample${i}`}
 						src={img}
@@ -102,9 +112,11 @@ const EndingImgs = () => {
 							const allKeys = Object.values(keyPoints).every((value) => value);
 							if (allKeys) {
 								if (idx >= endingImgs.length - 1) {
+									localStorage.setItem("is_open", true);
 									setShowPopup(true);
 								} else {
 									setIdx(idx + 1);
+									setShowKeys(false);
 								}
 							}
 							return null;
