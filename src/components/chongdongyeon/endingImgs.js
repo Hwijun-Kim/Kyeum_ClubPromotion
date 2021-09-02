@@ -26,7 +26,8 @@ const EndingImgs = () => {
 	const [showPopup, setShowPopup] = useState(false);
 	const [isDesktop, setIsDesktop] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
-	const [isTab, setIsTab] = useState(false);
+	const [isTabLand, setIsTabLand] = useState(false);
+	const [isTabPort, setIsTabPort] = useState(false);
 
 	const [showKeys, setShowKeys] = useState(!isOpen);
 	// console.log(showKeys)
@@ -44,15 +45,27 @@ const EndingImgs = () => {
 	// }
 	// useEffect(() => {}, [idx]);
 	useEffect(() => {
-		if (window.innerWidth > 769) {
+		if (window.innerWidth > 1200) {
 			setIsDesktop(true);
+			setIsTabLand(false);
+			setIsTabPort(false);
 			setIsMobile(false);
-		} else if(window.innerWidth > 415) {
-			setIsTab(true);
-		} 
-		else {
-			setIsMobile(true);
+		} else if (window.innerWidth > 900) {
 			setIsDesktop(false);
+			setIsTabLand(true);
+			setIsTabPort(false);
+			setIsMobile(false);
+		} else if (window.innerWidth > 600) {
+			setIsDesktop(false);
+			setIsTabLand(false);
+			setIsTabPort(true);
+			setIsMobile(false);
+		}
+		else {
+			setIsDesktop(false);
+			setIsTabLand(false);
+			setIsTabPort(false);
+			setIsMobile(true);
 		}
 	}, []);
 	return keyPoints ? (
@@ -109,7 +122,7 @@ const EndingImgs = () => {
 					<img
 						id={`sample${i}`}
 						src={img}
-						style={isDesktop?{
+						style={isDesktop ? ({
 							position: "absolute",
 							// top: 0,
 							padding: "10%",
@@ -122,7 +135,7 @@ const EndingImgs = () => {
 							zIndex: 1,
 							right: "45%",
 							top: "-18%",
-						}:(isTab?{
+						}) : (isTabLand ? ({ // 수정필요
 							position: "absolute",
 							// top: 0,
 							padding: "10%",
@@ -135,7 +148,7 @@ const EndingImgs = () => {
 							zIndex: 1,
 							right: "47.5%",
 							top: "-2%",
-						}:{
+						}) : (isTabPort ? ({ // 수정필요
 							position: "absolute",
 							// top: 0,
 							padding: "10%",
@@ -148,7 +161,20 @@ const EndingImgs = () => {
 							zIndex: 1,
 							right: "46.4%",
 							top: "13%",
-						})}
+						}) : ({ // mobile
+							position: "absolute",
+							// top: 0,
+							padding: "10%",
+							width: "60%",
+							// maxWidth: "360px",
+							// height: "50%",
+							objectFit: "cover",
+							objectPosition: "center",
+							// maxHeight: "720px",
+							zIndex: 1,
+							right: "46.4%",
+							top: "13%",
+						})))}
 						onClick={() => {
 							const allKeys = Object.values(keyPoints).every((value) => value);
 							if (allKeys) {
