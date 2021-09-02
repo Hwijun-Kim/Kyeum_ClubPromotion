@@ -180,7 +180,7 @@ const Main = () => {
       } else {
         localStorage.setItem("mju_name", a.value);
         localStorage.setItem("jewelry_idx", JSON.stringify(Math.floor(Math.random() * 7)));
-        localStorage.setItem("isOpen", JSON.stringify(false));
+        localStorage.setItem("is_open", JSON.stringify(false));
         setUserName(a.value);
         setKeysPoint();
       }
