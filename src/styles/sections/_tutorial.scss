@@ -27,18 +27,25 @@
 		font-size: 1rem;
 	}
 }
+.ment1 {
+	font-size: 1.5rem;
+	// white-space: nowrap;
+	@include respond(phone) {
+		font-size: 1rem;
+	}
+}
 .ment2 {
 	font-size: 1.5rem;
-	white-space: nowrap;
+	//white-space: nowrap;
 	@include respond(phone) {
-		font-size: 1.5rem;
+		font-size: 1rem;
 	}
 }
 .ment3 {
-	font-size: 1.25rem;
+	font-size: 1.5rem;
 	width: 100%;
 	@include respond(phone) {
-		font-size: 0.8rem;
+		font-size: 1rem;
 	}
 }
 .ment4 {
@@ -49,6 +56,27 @@
 }
 .ment5 {
 	font-size: 1.5rem;
+	@include respond(phone) {
+		font-size: 1rem;
+	}
+}
+.ment6 {
+	font-size: 1.5rem;
+	// white-space: nowrap;
+	@include respond(phone) {
+		font-size: 1rem;
+	}
+}
+.ment7 {
+	font-size: 1.5rem;
+	// white-space: nowrap;
+	@include respond(phone) {
+		font-size: 1rem;
+	}
+}
+.ment8 {
+	font-size: 1.5rem;
+	// white-space: nowrap;
 	@include respond(phone) {
 		font-size: 1rem;
 	}
@@ -73,8 +101,8 @@
 	top: 75%;
 	font-family: "둥근모";
 	@include respond(phone) {
-		top: 37%;
-		left: 20%;
+		top: 73%;
+		left: 13%;
 	}
 }
 #text2 {
@@ -85,8 +113,8 @@
 	align-items: center;
 	font-family: "둥근모";
 	@include respond(phone) {
-		top: 65%;
-		left: 15%;
+		top: 78%;
+		left: 13%;
 	}
 }
 

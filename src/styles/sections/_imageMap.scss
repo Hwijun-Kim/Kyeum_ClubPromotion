@@ -517,6 +517,12 @@
     top: 48vh;
     left: -5%;
   }
+  /*@include respond(tab-land or tab-port) {
+    height: 50vh;
+    width: 100%;
+    top: 48vh;
+    left: -5%;
+  }*/
 }
 
 #mapContainer {
