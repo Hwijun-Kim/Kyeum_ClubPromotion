@@ -18,7 +18,12 @@ const trans = (r, s) =>
   `rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
 function Deck({ cards, club_name }) {
-  const sub_club_name = club_name.substring(0, 2);
+  let sub_club_name = club_name.substring(0, 2);
+  if (sub_club_name == "P.") {
+    sub_club_name = "PE";
+  } else if (sub_club_name == "D-") {
+    sub_club_name = "디비";
+  }
   const keyPoints = localStorage.getItem('key_points') ? JSON.parse(localStorage.getItem('key_points')) : null;
   const [hasKey, setHasKey] = useState(keyPoints && openDepartmentName.includes(sub_club_name) && keyPoints.hasOwnProperty(sub_club_name) && !keyPoints[sub_club_name]);
   // console.log(hasKey);
