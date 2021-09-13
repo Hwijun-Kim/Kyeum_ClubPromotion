@@ -49,7 +49,7 @@ const EndingPopup = ({ setShowPopup }) => {
 				>
 					<div
 						id="completeCard"
-						style={{ position: "relative", top: "6rem", left: "25%" }}
+						//style={{ position: "relative", top: "7.5rem", left: "19.5%" }}
 					>
 						<span id="completeCardMent" style={{ fontSize: "3rem" }}>
 							{userName}

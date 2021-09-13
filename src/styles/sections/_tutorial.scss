@@ -121,13 +121,13 @@
 #completeCard {
 	position: absolute;
 	width: 70%;
-	left: 54%;
-	top: 39%;
+	left: 21%;
+	top: 9%;
 	align-items: center;
 	font-family: "둥근모";
 	@include respond(phone) {
-		top: 39.5%;
-		left: 54%;
+		top: 8%;
+		left: 16%;
 		font-weight: bold;
 	}
 }
